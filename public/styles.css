@@ -1,0 +1,141 @@
+/* Basic styling for the whole page */
+html, body {
+  height: 100%; /* Full height of the viewport */
+  margin: 0; /* No margin */
+  padding: 0; /* No padding */
+}
+
+/* Styling for the body */
+body {
+  font-family: sans-serif; /* Sets the font style */
+  text-align: center; /* Aligns text to the center */
+  background-image: url('https://www.mappr.co/wp-content/uploads/2022/03/world-map-high-definition.jpg'); /* Sets a background image */
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* The background image will not repeat */
+}
+
+/* GRID LAYOUT 
+|       Column 1       |       Column 2       |
+1 --------------------- 2 --------------------- 3
+*/
+
+/* Grid container styling */
+.wrapper {
+  display: grid; /* Enables CSS Grid layout */
+  grid-template-columns: 3fr 1fr; /* Divides the grid into two columns, 3:1 ratio */
+  grid-gap: 20px; /* Sets gap between grid items */
+  max-width: 60vw; /* Maximum width of the grid */
+  margin: auto; /* Centers the grid horizontally */
+  box-sizing: border-box; /* Includes padding and border in the element's size */
+}
+
+/* Search section styling */
+.search-section {
+  grid-column: 1 / -1; /* Spans from the first to the last column */
+}
+
+/* Input and button styling */
+input, button {
+  font-size: 18px; /* Sets font size */
+  margin: 5px; /* Sets margin */
+}
+
+input {
+  padding: 10px; /* Padding inside the input field */
+}
+
+button {
+  padding: 10px 20px; /* Padding inside the button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* Styling for the message inside the search section */
+.search-section p#message {
+  font-size: 18px; /* Font size for the message */
+  margin-top: 10px; /* Top margin for the message */
+}
+
+/* Main content area styling */
+.main-content {
+  grid-column: 1 / 2; /* Occupies the first column */
+  grid-row: 2; /* Positioned in the second row */
+}
+
+/* Styling for country name and official name */
+.country-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.official-name {
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* Styling for result and image containers */
+.results-container, .image-container {
+  border: 2px solid black; /* Border styling */
+  border-radius: 10px; /* Rounded corners for the border */
+  padding: 10px; /* Padding inside the containers */
+  background-color: white; /* Background color */
+  max-width: 30vw; /* Maximum width */
+  display: none; /* Initially not displayed */
+}
+
+/* Styling for flag container */
+#flagContainer {
+  grid-column: 2 / 3; /* Occupies the second column */
+  grid-row: 2; /* Positioned in the second row */
+}
+
+/* Styling for coat of arms container */
+#coatOfArmsContainer {
+  margin-top: 20px; /* Top margin */
+  grid-column: 2 / 3; /* Occupies the second column */
+  grid-row: 3; /* Positioned in the third row */
+}
+
+/* Image styling */
+#flagContainer img, #coatOfArmsContainer img {
+  max-width: 25vw; /* Max width for the images */
+  width: auto; /* Auto-adjusts the width */
+  object-fit: contain; /* Ensures image aspect ratio is maintained */
+  object-position: center; /* Centers the image */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    grid-template-rows: auto; /* Row height set automatically */
+    max-width: 90vw; /* Wider max width for smaller screens */
+  }
+  .results-container, .image-container {
+    max-width: 90vw; /* Adjusts the maximum width for smaller screens */
+  }
+
+  .search-section {
+    grid-column: 1 / 2; /* Adjusts to single column layout */
+  }
+
+  .main-content {
+    grid-column: 1 / 2; /* Adjusts to single column layout */
+    grid-row: 2; /* Remains in the second row */
+  }
+
+  #flagContainer {
+    grid-column: 1 / 2; /* Adjusts to single column layout */
+    grid-row: 3; /* Moves to the third row */
+  }
+
+  #coatOfArmsContainer {
+    grid-column: 1 / 2; /* Adjusts to single column layout */
+    grid-row: 4; /* Moves to the fourth row */
+  }
+
+  .main-content {
+    overflow-y: auto; /* Allows vertical scrolling if content overflows */
+    max-height: 50vh; /* Sets maximum height to 50% of the viewport height */
+  }
+}
